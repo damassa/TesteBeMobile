@@ -1,12 +1,17 @@
 import React from 'react';
 import Horoscopo from './components/Horoscopo';
+import { Artboard, ShowSigns, Wrapper } from './components/ShowSigns/style';
 
 function App() {
   return (
-    <div>
-      <h1>Signos</h1>
-      <Horoscopo></Horoscopo>
-    </div>
+    <Wrapper>
+      <Artboard>
+        <h1>Signos</h1>
+        <Horoscopo>
+          <ShowSigns />
+        </Horoscopo>
+      </Artboard>
+    </Wrapper>
   );
 }
 

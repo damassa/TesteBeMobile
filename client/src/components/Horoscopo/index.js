@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
-import ShowSigns from '../ShowSigns';
+import { ShowSigns, CarouselWrapper } from '../ShowSigns/style';
+import Carousel from 're-carousel';
 
 export default class Horoscopo extends React.Component {
     state = {
@@ -17,9 +18,17 @@ export default class Horoscopo extends React.Component {
 
     render() {
         return (
-            <>
-                { this.state.Signos.map(Signos => <ShowSigns key = {Signos.id} description={Signos.description} slug={Signos.slug}></ShowSigns>) }
-            </>
+            <CarouselWrapper> 
+                <Carousel>
+                    { this.state.Signos.map((Signos, id) => 
+                        <ShowSigns key = {id}>
+                            {Signos.description}
+                            {Signos.predictions[0].description}
+                            {Signos.slug}
+                        </ShowSigns>
+                    )}
+                </Carousel> 
+            </CarouselWrapper>
         )
     }
 }
