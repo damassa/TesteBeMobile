@@ -1,10 +1,11 @@
 import React from 'react';
-import ShowSigns from './components/ShowSigns';
+import Horoscopo from './components/Horoscopo';
 
 function App() {
   return (
     <div>
-      <ShowSigns></ShowSigns>
+      <h1>Signos</h1>
+      <Horoscopo></Horoscopo>
     </div>
   );
 }
