@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
-import { ShowSigns, CarouselWrapper } from '../ShowSigns/style';
+import { ShowSigns, CarouselWrapper, SignsWrapper, SignsIcon, SignsName, Name, SignsText, Text } from '../ShowSigns/style';
 import Carousel from 're-carousel';
+import Icons from '../../assets/icons';
+import Arrows from '../Carousel/arrows';
 
 export default class Horoscopo extends React.Component {
     state = {
@@ -19,12 +21,22 @@ export default class Horoscopo extends React.Component {
     render() {
         return (
             <CarouselWrapper> 
-                <Carousel>
+                <Carousel loop widgets={[Arrows]}>
                     { this.state.Signos.map((Signos, id) => 
                         <ShowSigns key = {id}>
-                            {Signos.description}
-                            {Signos.predictions[0].description}
-                            {Signos.slug}
+                            <SignsWrapper>
+                                <SignsIcon Icon={Icons[Signos.slug]}/>
+                                <SignsName>
+                                    <Name>
+                                        {Signos.description}
+                                    </Name>
+                                </SignsName>
+                            </SignsWrapper>
+                            <SignsText>
+                                <Text>
+                                    {Signos.predictions[0].description}
+                                </Text>
+                            </SignsText>
                         </ShowSigns>
                     )}
                 </Carousel> 
